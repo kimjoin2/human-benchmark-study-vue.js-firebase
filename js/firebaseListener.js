@@ -1,18 +1,26 @@
 firebase.database()
     .ref('records')
     .on('value', function(snapshot) {
-        let dataSet = [];
+        let recordArray = [];
+        let nameMap = new Map();
         snapshot.forEach(function(childSnapshot) {
-            let childData = childSnapshot.val().record;
-            dataSet.push(childData);
+            let record = childSnapshot.val().record;
+            let name = childSnapshot.val().name;
+            recordArray.push(record);
+            nameMap.set(record, name);
         });
-        dataSet.sort(function(a,b) { return a - b;});
-        let recordTable = document.getElementsByClassName("records");
+        recordArray.sort(function(a,b) { return a - b;});
+        let recordTable = document.getElementsByClassName("record");
+        let nameTable = document.getElementsByClassName("userName");
+
         for(let i=0; i<recordTable.length; i++){
-            if(dataSet.length > i){
-                recordTable[i].innerHTML = dataSet[i] + " sec";
+            if(recordArray.length > i){
+                let record = recordArray[i];
+                recordTable[i].innerHTML = record + " sec";
+                nameTable[i].innerHTML = nameMap.get(record);
             } else {
                 recordTable[i].innerHTML = "";
+                nameTable[i].innerHTML = "";
             }
         }
 });
