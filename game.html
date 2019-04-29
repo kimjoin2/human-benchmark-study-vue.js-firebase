@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Response Check</title>
+</head>
+<body>
+    <div>
+        <br>
+        <div id="gameStatus">welcome</div>
+        <br>
+        <button id="gameMainButton" onclick="gameMainButtonClicked()">game start</button>
+        <br>
+        <button id="resetGameButton" onclick="resetGameButtonClicked()">reset game</button>
+        <br>
+        <div class="records"></div>
+        <div class="records"></div>
+        <div class="records"></div>
+        <div class="records"></div>
+        <div class="records"></div>
+    </div>
+<p hidden id="startTime"></p>
+</body>
+<!-- project library -->
+<script src="js/constStrings.js"></script>
+<script src="js/responseCheck.js"></script>
+<script src="js/initial.js"></script>
+
+<!-- firebase official library -->
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
+<!-- firebase project library -->
+<script src="js/firebaseConfig.js"></script>
+<script src="js/firebaseInput.js"></script>
+<script src="js/firebaseListener.js"></script>
+</html>
